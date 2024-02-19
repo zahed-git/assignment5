@@ -20,9 +20,13 @@ function checkButtonClick(event) {
 
     clickCount++;
     // Highlight the clicked button
-    event.target.classList.add('bg-lime-400');
+    event.target.classList.add('bg-lime-400', 'text-white');
     // Add the ID of the clicked button to the array
     // Generate pId based on click count
+    
+    let ticketLeft=document.getElementById('seat-left');
+    let leftTicket=ticketLeft.innerHTML;
+    let availableSet= leftTicket-clickCount;
     let pId = 'p' + clickCount;
     let totalPrice = 550 * clickCount;
     let changText = document.getElementById('tp');
@@ -48,7 +52,7 @@ function checkButtonClick(event) {
     }
     showById(pId);
     changText.innerText = totalPrice;
-    // colText.innerText=
+    ticketLeft.innerText= availableSet;
 }
 
 for (let charCode = 97; charCode <= 106; charCode++) {
@@ -97,3 +101,4 @@ function checkNumber() {
 //add-here
 //total-price
 //final-price
+//seat-left
