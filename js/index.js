@@ -25,8 +25,14 @@ function checkButtonClick(event) {
     // Generate pId based on click count
     
     let ticketLeft=document.getElementById('seat-left');
-    let leftTicket=ticketLeft.innerHTML;
+    let leftTicket=ticketLeft.innerText;
     let availableSet= leftTicket-clickCount;
+    
+    let selSeat=document.getElementById('sup');
+    let selValue=selSeat.innerText;
+    // let newSelSeat = selValue+clickCount;
+    let newSelSeat = (Number(clickCount) + Number(selValue)).toString();
+
     let pId = 'p' + clickCount;
     let totalPrice = 550 * clickCount;
     let changText = document.getElementById('tp');
@@ -53,6 +59,7 @@ function checkButtonClick(event) {
     showById(pId);
     changText.innerText = totalPrice;
     ticketLeft.innerText= availableSet;
+    selSeat.innerText= newSelSeat;
 }
 
 for (let charCode = 97; charCode <= 106; charCode++) {
